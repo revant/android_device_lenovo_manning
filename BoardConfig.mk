@@ -53,7 +53,7 @@ ARCH_ARM_HAVE_VFP := true
 # Kernel
 TARGET_KMODULES := true
 BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
-androidboot.selinux=permissive
+androidboot.selinux=enforcing
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
@@ -152,14 +152,14 @@ BOARD_USE_SOFT_GATEKEEPER := true
 # Kernel informations
 BOARD_KERNEL_BASE := 0x40078000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=enforcing
 BOARD_MKBOOTIMG_ARGS := --board 1465391499 --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000
 
 # Kernel properties
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
 
 # SELinux
-BOARD_SEPOLICY_DIRS := \
+BOARD_SEPOLICY_DIRS += \
 	$(LOCAL_PATH)/sepolicy/common/basic \
 	$(LOCAL_PATH)/sepolicy/common/bsp \
 	$(LOCAL_PATH)/sepolicy/common/full \
