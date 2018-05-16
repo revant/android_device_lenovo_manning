@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_SHARED_LIBRARIES := libbinder libgui liblog libui libutils
 LOCAL_MODULE := libshim_gui
+LOCAL_C_INCLUDES := frameworks/native/libs/sensor/include
 LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
