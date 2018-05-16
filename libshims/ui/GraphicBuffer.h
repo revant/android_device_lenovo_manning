@@ -25,6 +25,7 @@
 #include <ui/Rect.h>
 #include <utils/Flattenable.h>
 #include <utils/RefBase.h>
+#include <hardware/gralloc.h>
 
 #include <string>
 
