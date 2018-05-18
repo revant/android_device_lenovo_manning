@@ -54,6 +54,7 @@ ARCH_ARM_HAVE_VFP := true
 TARGET_KMODULES := true
 BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 androidboot.selinux=enforcing
+BOARD_KERNEL_IMAGE_NAME := Image.gz
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
@@ -132,6 +133,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
+LZMA_RAMDISK_TARGETS := recovery
 
 #GPS
 BOARD_GPS_LIBRARIES := true
