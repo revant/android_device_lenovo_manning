@@ -14,70 +14,15 @@
  * limitations under the License.
  */
 
-#include <stdint.h>
-#include <sys/types.h>
-
-#include "GraphicBuffer.h"
 #include <ui/GraphicBufferMapper.h>
-#include <ui/PixelFormat.h>
-#include <cutils/atomic.h>
+#include <ui/Rect.h>
 
 extern "C" {
+    void _ZN7android11BufferQueue17createBufferQueueEPNS_2spINS_22IGraphicBufferProducerEEEPNS1_INS_22IGraphicBufferConsumerEEERKNS1_INS_19IGraphicBufferAllocEEE() {}
+
     void _ZN7android19GraphicBufferMapper9lockYCbCrEPK13native_handlejRKNS_4RectEP13android_ycbcr(buffer_handle_t, uint32_t, const android::Rect&, android_ycbcr*);
 
     void _ZN7android19GraphicBufferMapper9lockYCbCrEPK13native_handleiRKNS_4RectEP13android_ycbcr(buffer_handle_t handle, int usage, const android::Rect& bounds, android_ycbcr *ycbcr) {
         _ZN7android19GraphicBufferMapper9lockYCbCrEPK13native_handlejRKNS_4RectEP13android_ycbcr(handle, static_cast<uint32_t>(usage), bounds, ycbcr);
     }
 }
-
-namespace android {
-
-static uint64_t getUniqueId() {
-    static volatile int32_t nextId = 0;
-    uint64_t id = static_cast<uint64_t>(getpid()) << 32;
-    id |= static_cast<uint32_t>(android_atomic_inc(&nextId));
-    return id;
-}
-
-GraphicBuffer::GraphicBuffer()
-    : BASE(), mOwner(ownData), mBufferMapper(GraphicBufferMapper::get()),
-      mInitCheck(NO_ERROR), mId(getUniqueId()), mGenerationNumber(0)
-{
-    width  =
-    height =
-    stride =
-    format =
-    usage  = 0;
-    handle = NULL;
-}
-
-GraphicBuffer::GraphicBuffer(uint32_t inWidth, uint32_t inHeight,
-        PixelFormat inFormat, uint32_t inUsage)
-    : BASE(), mOwner(ownData), mBufferMapper(GraphicBufferMapper::get()),
-      mInitCheck(NO_ERROR), mId(getUniqueId()), mGenerationNumber(0)
-{
-    width  =
-    height =
-    stride =
-    format =
-    usage  = 0;
-    handle = NULL;
-    mInitCheck = initSize(inWidth, inHeight, inFormat, inUsage, "<Unknown>");
-}
-
-GraphicBuffer::GraphicBuffer(uint32_t inWidth, uint32_t inHeight,
-        PixelFormat inFormat, uint32_t inUsage, std::string requestorName)
-    : BASE(), mOwner(ownData), mBufferMapper(GraphicBufferMapper::get()),
-      mInitCheck(NO_ERROR), mId(getUniqueId()), mGenerationNumber(0)
-{
-    width  =
-    height =
-    stride =
-    format =
-    usage  = 0;
-    handle = NULL;
-    mInitCheck = initSize(inWidth, inHeight, inFormat, inUsage,
-            std::move(requestorName));
-}
-
-};
