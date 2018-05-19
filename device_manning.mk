@@ -185,21 +185,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	charger
 
-# Mediatek Vendor 
-PRODUCT_PACKAGES += \
-    CarrierConfig \
-    ConfigUpdater \
-    AtciService \
-    DrmProvider \
-    Gba \
-    Omacp \
-    YGPS \
-    mediatek-res \
-    FwkPlugin \
-    ImsService \
-    Stk1 \
-    WfoService
-
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh \
