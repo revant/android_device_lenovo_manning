@@ -29,3 +29,12 @@ cd ../..
 cd vendor/cmsdk
 git apply --reverse -v ../../device/lenovo/manning/patches_mtk/vendor_cmsdk.patch
 cd ../..
+cd hardware/interfaces
+git apply --reverse -v ../../device/lenovo/manning/patches_mtk/hardware/interfaces/hardware_interfaces.patch
+cd ../..
+cd system/core
+git apply --reverse -v ../../device/lenovo/manning/patches_mtk/system/core/system_core.patch
+cd ../..
+cd system/sepolicy
+git apply --reverse -v ../../device/lenovo/manning/patches_mtk/system/sepolicy/system_sepolicy.patch
+cd ../..
